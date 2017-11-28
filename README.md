@@ -1,0 +1,8 @@
+# traffic-spike-analysis
+Analysis of Signals as a Proxy for Traffic Spikes
+
+When there is a spike in traffic (i.e., pageviews), this often does not get recorded in the database until a brief time after the spike occurs. Therefore, it would be useful to look at other signals that occur concurrently with the traffic spike, to use as a proxy for determining whether and when a potential spike is occurring. 
+
+First, a sample of traffic spikes was identified during a 6-month period, where a spike was defined as at least a 1.5x increase in the number of pageviews over a period of 5 minutes. Then, changes in various metrics were examined, such as number of shares, unique visitors, video views (>= 30s), nugget preview CTR, and ratio of pageviews to total events. Such changes were measured over 3 different time windows: concurrently with the traffic spike, during the 5 minutes prior to the occurrence of the traffic spike, and during the 5 minutes subsequent to the spike.
+
+For the 5-minute windows prior and subsequent to the spike, none of the metrics examined correlated substantially with the increase in pageviews. However, for the window concurrent to the occurrence of the spike, the magnitude of the spike was significantly and positively correlated with a change in number of visitors as well as long video views (>= 30s). This suggests that, during the time when a spike occurs, there is a substantial increase in both number of visitors and long video views. Changes in such metrics can be a useful signal to indicate whether or not a traffic spike is occurring, even if the actual pageview data are not yet available in the database.
